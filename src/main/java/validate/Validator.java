@@ -3,11 +3,11 @@ package validate;
 
 public class Validator {
 
-    public boolean check(String input, boolean personFlag, boolean itemFlag) {
+
+    public boolean checkPerson(String input) {
         boolean isCorrectInput = false;
         boolean isInteger = isInteger(input);
-        boolean isDouble = isDouble(input);
-        if (isInteger && personFlag) {
+        if (isInteger) {
             if (Integer.parseInt(input) == 1) {
                 System.out.println("Количество человек, введённых пользователем, " +
                         "равно 1. В этом случае нет смысла ничего считать и делить.");
@@ -17,13 +17,27 @@ public class Validator {
             } else {
                 isCorrectInput = true;
             }
+        } else {
+            System.out.println("Некорректный ввод,введите целое число.");
         }
-        if (itemFlag && (isDouble || isInteger)) {
+        return isCorrectInput;
+    }
+
+    public boolean checkItem(String input) {
+        boolean isCorrectInput = false;
+        boolean isInteger = isInteger(input);
+        boolean isDouble = isDouble(input);
+        if (isDouble || isInteger) {
             if (Double.parseDouble(input) < 0) {
                 System.out.println("Стоимость товара не может быть отрицательной.");
+            } else if (Double.parseDouble(input) == 0) {
+                System.out.println("Подарок от шефа \uD83C\uDF81.");
+                isCorrectInput = true;
             } else {
                 isCorrectInput = true;
             }
+        } else {
+            System.out.println("Некорректный ввод,введите число.");
         }
         return isCorrectInput;
     }

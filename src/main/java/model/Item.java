@@ -2,8 +2,8 @@ package model;
 
 public class Item {
 
-    public String name;
-    public double price;
+    private String name;
+    private double price;
 
     public String getName() {
         return name;
