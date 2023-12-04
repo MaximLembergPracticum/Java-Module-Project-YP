@@ -173,12 +173,12 @@ public class Test {
         System.out.println("**** " + testName + " ****\n");
         int pass = 0;
         Formatter formatter = new Formatter();
-        double[] inputs = new double[]{1, 2.5, 3.2, 4.7, 5.2, 10, 21.2, 22.6, 25.2, 150.2, 1900};
-        String[] checkOutputs = new String[]{"рубль.", "рубля.", "рубля.", "рублей.",
-                "рублей.", "рублей.", "рублей.", "рублей.", "рублей.", "рублей.",
-                "рублей."};
-        Boolean[] correctInput = new Boolean[]{true, true, true, false, true, true, true,
-                false, true, true, true};
+        double[] inputs = new double[]{1, 2.5, 3.2, 4.7, 5.2, 10, 21.2, 22.6, 25.2, 150.2, 1900, 21};
+        String[] checkOutputs = new String[]{"рубль.", "рубля.", "рубля.", "рубля.",
+                "рублей.", "рублей.", "рубль.", "рубь.", "рублей.", "рублей.",
+                "рублей.", "рубль."};
+        Boolean[] correctInput = new Boolean[]{true, true, true, true, true, true, true,
+                false, true, true, true, true};
         for (int i = 0; i < inputs.length; i++) {
             System.out.println("Tecт: " + (i + 1));
             System.out.print("Ответ форматера: ");

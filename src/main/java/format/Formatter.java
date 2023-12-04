@@ -24,24 +24,16 @@ public class Formatter {
         BigDecimal result = new BigDecimal(value);
         result = result.setScale(0, RoundingMode.DOWN);
         int price = result.intValue();
-        if (price == 1) {
-            return "рубль.";
-        }
-        if (price > 1 && price <= 4) {
-            return "рубля.";
-        }
-        if ((price >= 5 && price <= 9) || price == 0) {
+        int preLastDigit = price % 100 / 10;
+        if (preLastDigit == 1) {
             return "рублей.";
         }
-        if (price >= 11 && price <= 19) {
-            return "рублей.";
-        }
-        double lastDigit = price % 10;
-        if ((lastDigit >= 2 && lastDigit <= 4)) {
-            return "рубля.";
-        } else {
-            return "рублей.";
-        }
+        return switch (price % 10) {
+            case 1 -> "рубль.";
+            case 2, 3, 4 -> "рубля.";
+            default -> "рублей.";
+        };
     }
 
 }
+

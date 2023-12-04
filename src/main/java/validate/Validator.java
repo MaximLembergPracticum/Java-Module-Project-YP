@@ -25,9 +25,8 @@ public class Validator {
 
     public boolean checkItem(String input) {
         boolean isCorrectInput = false;
-        boolean isInteger = isInteger(input);
         boolean isDouble = isDouble(input);
-        if (isDouble || isInteger) {
+        if (isDouble) {
             if (Double.parseDouble(input) < 0) {
                 System.out.println("Стоимость товара не может быть отрицательной.");
             } else if (Double.parseDouble(input) == 0) {
